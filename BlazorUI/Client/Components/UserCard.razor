@@ -1,33 +1,22 @@
-﻿<div class="uicard">
-
-    <div class="fon">
-        <img src="http://s45.radikal.ru/i110/1703/7f/352430671cbd.jpg">
+﻿<div class="wrapper">
+    <div class="top-icons">
+        <i class="fas fa-long-arrow-alt-left"></i>
+        <i class="fas fa-ellipsis-v"></i>
+        <i class="far fa-heart"></i>
     </div>
 
-    <div class="user">
-        <img src="http://s020.radikal.ru/i704/1703/f8/445c49629467.jpg">
-        <p>@UserName </p>
-    </div>
-    <div class="socialinfo">
-        <div class="socialtext1">
-            <p>725</p>
-            <p>followers</p>
-        </div>
-
-        <div class="socialtext2">
-            <p>517</p>
-            <p>following</p>
-        </div>
-
-        <div class="socialtext3">
-            <p>411</p>
-            <p>stories</p>
-        </div>
+    <div class="profile">
+        <img src="@User.ProfilePic" class="thumbnail">
+        <div class="check"><i class="fas fa-check"></i></div>
+        <h3 class="name">@User.FullName</h3>
+        <p class="title">@User.UserName</p>
+        <button type="button" class="btn">Takip Et</button>
     </div>
 </div>
+
 
 @code {
 
     [Parameter]
-    public string UserName { get; set; }
+    public InstaUser User { get; set; }
 }

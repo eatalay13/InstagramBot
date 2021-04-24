@@ -15,5 +15,9 @@
     <ProjectReference Include="..\Shared\BlazorUI.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Mappings\" />
+  </ItemGroup>
+
 
 </Project>
