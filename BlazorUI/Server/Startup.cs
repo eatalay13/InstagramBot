@@ -1,3 +1,4 @@
+using BlazorUI.Server.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -25,6 +26,9 @@ namespace BlazorUI.Server
 
             services.AddControllersWithViews();
             services.AddRazorPages();
+
+
+            services.AddScoped<InstagramService>();
 
             services.AddAutoMapper(typeof(Startup));
         }

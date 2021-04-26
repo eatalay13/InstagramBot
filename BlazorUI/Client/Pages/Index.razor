@@ -1,3 +1,25 @@
 ﻿@page "/"
+@inject HttpClient Http
 
-<UserCard ></UserCard>
+@if (Users != null && Users.Any())
+{
+    <div class="container">
+        <div class="row">
+            @foreach (var user in Users)
+            {
+                <div class="col-sm-3 d-flex align-items-stretch">
+                    <UserInfoCard User="@user"></UserInfoCard>
+                </div>
+            }
+        </div>
+    </div>
+}
+
+@code{
+    public List<CurrentUser> Users { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        Users = await Http.GetFromJsonAsync<List<CurrentUser>>("api/Instagram/GetCurrentUser");
+    }
+}

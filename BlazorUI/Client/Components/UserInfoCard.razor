@@ -1,4 +1,4 @@
-﻿<div class="wrapper">
+﻿<div class="wrapper mb-3">
     <div class="top-icons">
         <i class="fas fa-long-arrow-alt-left"></i>
         <i class="fas fa-ellipsis-v"></i>
@@ -6,11 +6,12 @@
     </div>
 
     <div class="profile">
-        <img src="@User.ProfilePic" class="thumbnail">
+        <img crossorigin="anonymous" src="@User.ProfilePic" class="thumbnail">
         <div class="check"><i class="fas fa-check"></i></div>
         <h3 class="name">@User.FullName</h3>
         <p class="title">@User.UserName</p>
         <button type="button" class="btn">Takip Et</button>
+        <a href="https://instagram.com/@User.UserName" target="_blank" class="btn mt-3">Profil</a>
     </div>
 </div>
 
@@ -18,5 +19,5 @@
 @code {
 
     [Parameter]
-    public InstaUser User { get; set; }
+    public CurrentUser User { get; set; }
 }

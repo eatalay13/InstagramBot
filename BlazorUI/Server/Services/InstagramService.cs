@@ -17,7 +17,7 @@ namespace BlazorUI.Server.Services
     {
         private IInstaApi _instaApi;
 
-        public async Task<bool> LoginAsync(string userName,string password)
+        public async Task<bool> LoginAsync(string userName, string password)
         {
             try
             {
@@ -102,9 +102,9 @@ namespace BlazorUI.Server.Services
             return false;
         }
 
-        public bool LogoutAsync()
+        public async Task<bool> LogoutAsync()
         {
-            var logoutResult = Task.Run(() => _instaApi.LogoutAsync()).GetAwaiter().GetResult();
+            var logoutResult = await _instaApi.LogoutAsync();
 
             if (logoutResult.Succeeded) return true;
 
@@ -151,6 +151,16 @@ namespace BlazorUI.Server.Services
             return result.Value;
         }
 
+        public async Task<List<InstaUserShort>> GetCurrentUserAsync()
+        {
+            var result = await _instaApi.UserProcessor.GetCurrentUserFollowersAsync(PaginationParameters.Empty);
+
+            if (!result.Succeeded)
+                throw new Exception(result.Info.Message);
+
+            return result.Value;
+        }
+
         public async Task<bool> IsFollowAsync(string userName, string searchQuery = "")
         {
             var result = await _instaApi.UserProcessor.GetUserFollowersAsync(userName, PaginationParameters.Empty, searchQuery: searchQuery);
@@ -161,6 +171,16 @@ namespace BlazorUI.Server.Services
             bool isFollow = result.Value.Any(e => e.UserName == searchQuery);
 
             return isFollow;
+        }
+
+        public async Task<List<InstaUser>> SearchUser(string searchQuery)
+        {
+            var result = await _instaApi.DiscoverProcessor.SearchPeopleAsync(searchQuery);
+
+            if (!result.Succeeded)
+                throw new Exception(result.Info.Message);
+
+            return result.Value.Users;
         }
     }
 }

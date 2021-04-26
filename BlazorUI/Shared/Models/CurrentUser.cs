@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlazorUI.Shared.Models
 {
-    public class InstaUser
+    public class CurrentUser
     {
         public string ProfilePic { get; set; }
         public string UserName { get; set; }

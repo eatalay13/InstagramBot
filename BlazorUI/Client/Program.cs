@@ -18,6 +18,13 @@ namespace BlazorUI.Client
             builder.RootComponents.Add<App>("#app");
 
             builder.Services.AddScoped(sp => new HttpClient { BaseAddress = new Uri(builder.HostEnvironment.BaseAddress) });
+            builder.Services.AddCors(policy =>
+            {
+                policy.AddPolicy(policy.DefaultPolicyName, builder => builder.AllowAnyOrigin()
+                     .AllowAnyMethod()
+                     .AllowAnyHeader()
+                     .AllowCredentials());
+            });
 
             await builder.Build().RunAsync();
         }

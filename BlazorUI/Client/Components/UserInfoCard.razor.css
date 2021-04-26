@@ -74,13 +74,13 @@
         }
 
 .wrapper {
-    width: 320px;
+    width: 100%;
+    border: 3px solid #b500f9;
     background: #FDFEFF;
-    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%,#d6249f 60%,#285AEB 90%);
     transition: background 0.6s ease;
-    border-radius: 10px;
-    padding: 20px 20px 20px 20px;
-    box-shadow: 0 8px 40px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
 }
 
     .wrapper .top-icons i {
@@ -131,7 +131,7 @@
             }
 
         .wrapper .profile .thumbnail {
-            border: 5px solid #fff;
+            border: 5px solid #b400ff;
             width: 124px;
             height: 124px;
             display: flex;
@@ -143,14 +143,14 @@
         }
 
         .wrapper .profile .name {
-            color: #FFFFFF;
-            font-size: 24px;
+            color: #000;
+            font-size: 18px;
             font-weight: 600;
             text-align: center;
         }
 
         .wrapper .profile .title {
-            color: #FFFFFF;
+            color: #000;
             font-size: 0.75em;
             font-weight: 300;
             text-align: center;
@@ -160,16 +160,8 @@
             text-transform: uppercase;
         }
 
-        .wrapper .profile .description {
-            color: #FFFFFF;
-            font-size: 14px;
-            font-weight: 300;
-            text-align: center;
-            margin-bottom: 1.3em;
-        }
-
         .wrapper .profile .btn {
-            color: #fd644f;
+            color: #fff;
             width: 130px;
             height: 42px;
             outline: none;
@@ -181,7 +173,7 @@
             margin-right: auto;
             border-radius: 70px;
             box-shadow: 0 13px 26px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.16);
-            background: #FFFFFF;
+            background: #b500f9;
         }
 
 .concept {
